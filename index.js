@@ -25,10 +25,10 @@ app.get('/', async (req, res) => {
     }   
 });
 
-const showValues = (d,e) => {
-    console.log("Bs x USD: " + d);
-    console.log("Bs x EUR: " + e);
-};
+// const showValues = (d,e) => {
+//     console.log("Bs x USD: " + d);
+//     console.log("Bs x EUR: " + e);
+// };
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log("server on port: " + PORT));
