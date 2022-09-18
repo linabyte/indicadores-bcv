@@ -37,6 +37,7 @@ app.listen(PORT, () => console.log("server on port: " + PORT));
 const client = new Client();
 
 client.on('qr', qr => {
+    console.log(qr);
     qrcode.generate(qr, {small: true});
 });
 
