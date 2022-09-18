@@ -16,7 +16,7 @@ app.get('/', async (req, res) => {
         // destructuring
         const [{valuesBCV}, {valuesPetro}] = dataValues;
         const {dolarRound, euroRound} = valuesBCV;
-        showValues(dolarRound, euroRound);
+        // showValues(dolarRound, euroRound);
 
         res.json(dataValues);
 
