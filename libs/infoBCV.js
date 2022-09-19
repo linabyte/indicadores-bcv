@@ -7,6 +7,9 @@ const url = 'http://bcv.org.ve';
 
 const getDataBCV = async () => {
     try {
+
+        console.log("obteniendo datos del BCV...");
+        
         const { data } = await axios.get(url);
 
         const $ = cheerio.load(data);
