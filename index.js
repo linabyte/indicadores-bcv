@@ -9,11 +9,14 @@ import qr from 'qr-image';
 import { Client } from 'whatsapp-web.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -56,6 +59,10 @@ client.on('ready', () => {
 
 client.on('message', async message => {
 
+
+    if (from === 'status@broadcast') {
+        return
+    }
     // console.log(message.from)
 
     if(message.body.toLowerCase() === 'bcv') {

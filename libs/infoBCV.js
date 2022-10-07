@@ -2,16 +2,22 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { round } from './round.js';
+import https from 'https';
 
-const url = 'http://bcv.org.ve';
+const httpsAgent = new https.Agent({ rejectUnauthorized: false });
+
+
+// const url = 'http://bcv.org.ve';
+const url = 'https://www.bcv.org.ve';
+
 
 const getDataBCV = async () => {
     try {
 
         console.log("obteniendo datos del BCV...");
         
-        const { data } = await axios.get(url);
-
+        const { data } = await axios.get(url, {httpsAgent});
+        // console.log(data);
         const $ = cheerio.load(data);
 
         const selectDolarBCV = "#dolar > div > div > div.col-sm-6.col-xs-6.centrado > strong";
